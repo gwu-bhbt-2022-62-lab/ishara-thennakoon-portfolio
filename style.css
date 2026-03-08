@@ -489,7 +489,7 @@ body.dark .alt-bg {
   position: relative;
   margin-bottom: 3rem;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
 }
 
@@ -595,43 +595,39 @@ body.dark .alt-bg {
     left: 24px;
     transform: none;
   }
+  
   .timeline-item {
     padding-left: 56px;
+    display: block;
   }
+  
   .timeline-marker {
     left: 24px;
     transform: none;
     width: 36px;
     height: 36px;
+    font-size: 1rem;
   }
+  
   .timeline-content {
-    width: auto;
+    width: 100%;
     margin-left: 0;
     margin-right: 0;
     text-align: left;
   }
-  .timeline-content::before { display:none; }
-}
-
-@media (max-width: 768px) {
-  .timeline::before {
-    left: 24px;
-    transform: none;
+  
+  .timeline-content::before { 
+    display: none; 
   }
-  .timeline-item {
-    padding-left: 56px;
-  }
-  .timeline-marker {
-    left: 24px;
-    transform: none;
-    width: 36px;
-    height: 36px;
-  }
-  .timeline-content {
-    width: auto;
-    margin-left: 0;
-    margin-right: 0;
+  
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
     text-align: left;
+  }
+  
+  .timeline-item:nth-child(odd):hover .timeline-content,
+  .timeline-item:nth-child(even):hover .timeline-content {
+    transform: translateY(-5px) rotate(0deg) scale(1.01);
   }
 }
 
@@ -749,6 +745,17 @@ body.dark .alt-bg {
   font-size: 0.78rem;
   font-weight:600;
   opacity: 0.95;
+}
+
+.project-tags .course-tag,
+.project-tags .competition-tag {
+  background: #ff7a18;
+  color: white;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  opacity: 1;
 }
 
 .project-body { padding-top: 0.8rem; }
